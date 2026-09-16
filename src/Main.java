@@ -9,11 +9,12 @@ public class Main {
         Scanner leitor = new Scanner(System.in);
 
         // variáveis
-        double saldo = 0;
+        double saldo = 0.0;
+        double valor = 0.0;
         int opcao = 0;
 
         // repita:
-        do {
+        do { // repete
             // - mostra o saldo
             System.out.printf("Saldo: R$ %.2f\n", saldo);
 
@@ -22,17 +23,17 @@ public class Main {
             opcao = leitor.nextInt();
 
             // - deposita ou saca
-            if(opcao == 1){
+            if (opcao == 1) {
                 System.out.print("Digite o valor a depositar: ");
-                double valor = leitor.nextDouble();
+                valor = leitor.nextDouble();
                 saldo += valor; // soma o valor no saldo
 
-            } else if(opcao == 2){
+            } else if (opcao == 2) {
                 System.out.println("Digite o valor a sacar");
-                double valor = leitor.nextDouble();
+                valor = leitor.nextDouble();
                 saldo -= valor;
 
-            } else if (opcao != 9){
+            } else if (opcao != 9) {
                 System.out.println("Opção inválida");
             }
 
