@@ -10,8 +10,8 @@ public class Main {
 
         // variáveis
         double saldo = 0.0;
-        double valor = 0.0;
-        int opcao = 0;
+        double valor;
+        int opcao;
 
         // repita:
         do { // repete
@@ -26,12 +26,24 @@ public class Main {
             if (opcao == 1) {
                 System.out.print("Digite o valor a depositar: ");
                 valor = leitor.nextDouble();
+                if(valor < 0){
+                    System.out.println("Valor deve ser positivo");
+                    continue; // volta pro início do WHILE
+                }
                 saldo += valor; // soma o valor no saldo
 
             } else if (opcao == 2) {
                 System.out.println("Digite o valor a sacar");
                 valor = leitor.nextDouble();
-                saldo -= valor;
+                // se o valor é negativo, reclama
+                if(valor <= 0){
+                    System.out.println("Valor tem quer positivo.");
+                }
+                else if (valor > saldo) { // se o valor é maior que o saldo, reclama
+                    System.out.println("Saldo insuficiente.");
+                } else { // senão pode sacar
+                    saldo -= valor;
+                }
 
             } else if (opcao != 9) {
                 System.out.println("Opção inválida");
